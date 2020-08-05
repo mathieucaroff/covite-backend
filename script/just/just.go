@@ -66,7 +66,7 @@ func main() {
 
 	fmt.Printf("Running command: %s\n", cmd.String())
 
-	err = cmd.Run()
+	err = cmd.Start()
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
