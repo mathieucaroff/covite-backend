@@ -8,7 +8,7 @@ class Ressource(models.Model):
     updatedAt = models.DateTimeField(auto_now=True)
 
 class TodoGroup(Ressource):
-    user = User
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 class TodoItem(Ressource):
     name = models.CharField(max_length=200)

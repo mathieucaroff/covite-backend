@@ -20,7 +20,7 @@ class TodoGroupSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = TodoGroup
-        fields = ['url', 'items']
+        fields = ['url', 'user', 'items']
 
 class TodoItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
