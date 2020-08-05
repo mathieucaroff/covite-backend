@@ -1,0 +1,16 @@
+{
+    "include": [
+        "oxbot",
+        "oxowlbot",
+        "chatbot"
+    ],
+    "exclude": [
+        "typings"
+    ],
+    "reportMissingImports": false,
+    "reportMissingTypeStubs": false,
+    "reportSelfClsParameterName": false,
+    "reportTypeshedErrors": false,
+    "typingsPath": "typings",
+    "pythonVersion": "3.8"
+}

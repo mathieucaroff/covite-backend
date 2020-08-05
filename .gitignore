@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+
+# Django
+db.sqlite3
+
+# Oxdev
+tra
+
+## ## Root ## ##
+/*
+
+## Root Directories ##
+
+# Django project
+!/web_server/
+# Pyright type stubs
+!/typings/
+#
+!/script/
+
+## Root Files ##
+
+# Doc
+!/README.md
+!/api.graphql
+!/LICENSE
+
+# Git
+!/.gitignore
+
+# Editorconfig
+!/.editorconfig
+
+# Heroku
+!/Procfile
+
+# Poetry and Pyenv
+!/.python-version
+!/poetry.lock
+!/pyproject.toml
+!/web_server.egg-info/
+
+# Pyright
+!/pyrightconfig.json
+
+# Pytest
+!/pytest.ini
+
+# Convenience scripts
+!/manage
+!/pytest
+!/python
+!/run

@@ -1,0 +1,48 @@
+# An ISO-8601 encoded UTC date string
+scalar DateTime
+
+schema {
+  query
+  mutation
+}
+
+type Ressource {
+  id: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type TodoItem implements Ressource {
+  name: String
+  ticked: DateTime
+  antecedentList: [TodoItem!]!
+  successorList: [TodoItem!]!
+}
+
+type TodoItemInput {
+  name: String
+  ticked: Boolean
+  tickedAt: DateTime
+}
+
+type TodoGroup implements Ressource {
+  content: [TodoItem!]!
+}
+
+type Query {
+  todoItem(id: ID): TodoItem @get(uri="/api/todoItem")
+  todoGroup(id: ID): TodoGroup @get(uri="/api/todoGroup")
+}
+
+type TodoItemInput {
+  name: String
+}
+
+type Mutation {
+  createTodoItem(input: TodoItemInput): TodoItem @post(uri="/api/todoItem")
+  updateTodoItem(id: ID): TodoItem @put(uri="/api/todoItem")
+  deleteTodoItem(id: ID): TodoItem @delete(uri="/api/todoItem")
+
+  createTodoGroup(input: TodoGroupInput): TodoGroup @post(uri="/api/todoGroup")
+  deleteTodoGroup(id: ID): TodoGroup @put(uri="/api/todoGroup")
+}
