@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "csrfRestServer"
+name = "csrf-rest-server"
 version = "0.1.0"
 description = ""
 authors = [

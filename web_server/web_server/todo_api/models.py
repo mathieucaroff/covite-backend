@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Ressource(models.Model):
@@ -7,15 +8,9 @@ class Ressource(models.Model):
     updatedAt = models.DateTimeField(auto_now=True)
 
 class TodoGroup(Ressource):
-    pass
-    # (todoItem_set)
-
-class SuccessorRelationship(models.Model):
-    pass
+    user = User
 
 class TodoItem(Ressource):
-    name = models.CharField()
+    name = models.CharField(max_length=200)
     ticked_off = models.BooleanField()
     group = models.ForeignKey(to=TodoGroup, on_delete=models.CASCADE)
-    successorList = models.ManyToManyField(to='self', related_name='antecedentList', through=SuccessorRelationship)
-    # (antecedentList)

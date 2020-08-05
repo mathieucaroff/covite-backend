@@ -98,11 +98,8 @@ func getPrefixArgSlice(commandName string) ([]string, error) {
 	case "python":
 		scope = poetry
 	case "manage":
-		scope = python
-	case "migrate":
-	case "makemigrations":
-	case "startapp":
-	case "runserver":
+		return manage, nil
+	case "migrate", "makemigrations", "runserver", "startapp":
 		scope = manage
 	default:
 		return nil, fmt.Errorf("Unknow command name: %s", commandName)
