@@ -90,15 +90,13 @@ func getPrefixArgSlice(commandName string) ([]string, error) {
 	python := append(poetry, "run", "python")
 	manage := append(python, "web_server/manage.py")
 
-	scope := empty
-
 	switch commandName {
 	case "poetry":
-		scope = empty
+		return poetry, nil
 	case "python":
-		scope = poetry
+		return python, nil
 	case "migrate", "makemigrations", "runserver", "startapp":
-		scope = manage
+		return append(manage, commandName), nil
 	case "manage":
 		return manage, nil
 	case "createsuperuser":
@@ -106,6 +104,4 @@ func getPrefixArgSlice(commandName string) ([]string, error) {
 	default:
 		return nil, fmt.Errorf("Unknow command name: %s", commandName)
 	}
-
-	return append(scope, commandName), nil
 }
